@@ -5,19 +5,18 @@ import 'package:flutter/material.dart';
 
 class ApiServiceFirebase extends ChangeNotifier {
   static ApiServiceFirebase? _instance;
-  late FirebaseFirestore firebaseFirestore;
+  /* late FirebaseFirestore firebaseFirestore;
   late bool isLoggedIn;
   FirebaseAuth auth = FirebaseAuth.instance;
   final storage = FirebaseStorage.instance;
-  User? user;
+  User? user;*/
 
   ApiServiceFirebase._internal() {
-    firebaseFirestore = FirebaseFirestore.instance;
+    //  firebaseFirestore = FirebaseFirestore.instance;
   }
 
   static ApiServiceFirebase get instance {
     _instance ??= ApiServiceFirebase._internal();
     return _instance!;
   }
-  
 }
