@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:instagram_app/res/app_constants.dart';
+import 'package:instagram_app/screen/login_screen.dart';
 import 'package:instagram_app/screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
             initialRoute: SplashScreen.screenRoute,
             routes: {
               SplashScreen.screenRoute: (context) => const SplashScreen(),
+              LoginScreen.screenRoute : (context) => const LoginScreen(),
             },
           );
         },

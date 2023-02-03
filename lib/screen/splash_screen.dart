@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_app/screen/login_screen.dart';
 import 'package:sizer/sizer.dart';
 
 import '../res/app_constants.dart';
@@ -106,25 +107,30 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             alignment: Alignment.bottomCenter,
             height: 18.h,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Already have an account?",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 10.sp,
-                      fontFamily: "Inter"),
-                ),
-                Text(
-                  "Sign in.",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 10.sp,
-                      fontFamily: "Inter",
-                      fontWeight: FontWeight.w700),
-                ),
-              ],
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed(LoginScreen.screenRoute);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Already have an account?",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10.sp,
+                        fontFamily: "Inter"),
+                  ),
+                  Text(
+                    "Sign in.",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10.sp,
+                        fontFamily: "Inter",
+                        fontWeight: FontWeight.w700),
+                  ),
+                ],
+              ),
             ),
           ),
         ]),
