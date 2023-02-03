@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:instagram_app/res/app_constants.dart';
 import 'package:instagram_app/screen/login_screen.dart';
+import 'package:instagram_app/screen/main_screen.dart';
 import 'package:instagram_app/screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
             initialRoute: SplashScreen.screenRoute,
             routes: {
               SplashScreen.screenRoute: (context) => const SplashScreen(),
-              LoginScreen.screenRoute : (context) => const LoginScreen(),
+              LoginScreen.screenRoute: (context) => const LoginScreen(),
+              MainScreen.screenRoute: (context) => const MainScreen(),
             },
           );
         },

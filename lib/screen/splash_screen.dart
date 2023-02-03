@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:instagram_app/Notifiers/api_service_firebase.dart';
 import 'package:instagram_app/screen/login_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import '../res/app_constants.dart';
@@ -38,26 +42,39 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 5.w),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(11),
-                color: AppConstants.colorBlue,
+            child: GestureDetector(
+              onTap: () async {
+                await Provider.of<ApiServiceFirebase>(context, listen: false)
+                    .signInWithFacebook();
+
+              /*  log(Provider.of<ApiServiceFirebase>(context, listen: false)
+                    .user!
+                    .photoURL!);
+                log(Provider.of<ApiServiceFirebase>(context, listen: false)
+                    .user!
+                    .displayName!);*/
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(11),
+                  color: AppConstants.colorBlue,
+                ),
+                padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 1.w),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Image.asset('assets/images/_Facebook.png'),
+                  SizedBox(
+                    width: 2.w,
+                  ),
+                  Text(
+                    "Continue as shalini",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15.sp,
+                        fontFamily: "Inter"),
+                  ),
+                ]),
               ),
-              padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 1.w),
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Image.asset('assets/images/_Facebook.png'),
-                SizedBox(
-                  width: 2.w,
-                ),
-                Text(
-                  "Continue as shalini",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15.sp,
-                      fontFamily: "Inter"),
-                ),
-              ]),
             ),
           ),
           SizedBox(
