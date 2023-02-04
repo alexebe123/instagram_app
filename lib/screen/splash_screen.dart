@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:instagram_app/Notifiers/api_service_firebase.dart';
 import 'package:instagram_app/screen/login_screen.dart';
+import 'package:instagram_app/screen/main_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -16,6 +17,24 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    load();
+  }
+
+  Future load() async {
+    Future.delayed(const Duration(milliseconds: 200), () {
+      Provider.of<ApiServiceFirebase>(context, listen: false).getAccount();
+      bool isLoggedIn =
+          Provider.of<ApiServiceFirebase>(context, listen: false).isLoggedIn;
+      if (isLoggedIn) {
+        Navigator.of(context).pushReplacementNamed(MainScreen.screenRoute);
+      }
+    });
+  }
+
+  bool loading = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 await Provider.of<ApiServiceFirebase>(context, listen: false)
                     .signInWithFacebook();
 
-              /*  log(Provider.of<ApiServiceFirebase>(context, listen: false)
+                /*  log(Provider.of<ApiServiceFirebase>(context, listen: false)
                     .user!
                     .photoURL!);
                 log(Provider.of<ApiServiceFirebase>(context, listen: false)

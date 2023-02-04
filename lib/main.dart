@@ -20,7 +20,7 @@ void main() async {
 
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: AppConstants.colorBlue));
+      const SystemUiOverlayStyle(statusBarColor: AppConstants.prymeriColor));
 }
 
 class MyApp extends StatelessWidget {
